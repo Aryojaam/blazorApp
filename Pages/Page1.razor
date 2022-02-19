@@ -1,0 +1,17 @@
+﻿@page "/"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<h3>Hi there! What is your name?</h3>
+<input @bind="inputValue" />
+
+@if (!String.IsNullOrEmpty(inputValue)) {
+    <h3>Hello @inputValue!</h3>
+}
+
+@code {
+    private string pageTitle = "Page 1";
+    private string? inputValue;
+
+    private string? InputValue { get; set; }
+}

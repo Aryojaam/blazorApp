@@ -1,0 +1,28 @@
+﻿@page "/page2"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<h1>@pageTitle</h1>
+
+@for (var i = 1; i <= 3; i++) {
+    var imageId = i;
+    <button @onclick="() => ShowImage(imageId)">
+        Image @imageId
+    </button>
+}
+
+@if (imageSource is not null) {
+    <div>
+        <img style="height: 400px;" src="@imageSource" />
+    </div>
+}
+
+@code {
+    private string? imageSource;
+    private string pageTitle = "Page 2";
+
+    private void ShowImage(int id)
+    {
+        imageSource = $"images/image{id}.jpg";
+    }
+}
